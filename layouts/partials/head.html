@@ -1,10 +1,7 @@
 <head>
   <meta charset="utf-8" />
   {{ hugo.Generator }}
-  
-  {{ if .Site.Params.googleSiteVerification }}
-  <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}" />
-  {{ end }}
+  <meta name="google-site-verification" content="cjUeAB94_LgGaOQ3rk5sUy6wCk-o8N85tKvKJ98-ifM" />
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,15 +17,10 @@
   <link rel="icon" href="{{ .Site.Params.favicon }}" />
   <link rel="shortcut" href="{{ .Site.Params.favicon }}" />
   {{- end -}}
-  <link
-    rel="alternate"
-    type="application/atom+xml"
-    href="{{.Site.BaseURL}}index.xml"
-    title="{{ .Site.Title }}"
-  />
+  <link rel="alternate" type="application/atom+xml" href="{{.Site.BaseURL}}index.xml" title="{{ .Site.Title }}" />
 
   {{ partial "seo" . }}
-  
+
   {{- if .IsHome -}}
   <title>{{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Site.Title }}" />
@@ -39,14 +31,8 @@
   <title>{{ .Title }}</title>
   <meta property="og:title" content="{{ .Title }}" />
   <meta property="og:type" content="article" />
-  <meta
-    property="og:description"
-    content="{{ default .Summary .Description | plainify }}"
-  />
-  <meta
-    name="description"
-    content="{{ default .Summary .Description | plainify }}"
-  />
+  <meta property="og:description" content="{{ default .Summary .Description | plainify }}" />
+  <meta name="description" content="{{ default .Summary .Description | plainify }}" />
   {{- end }}
   <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
   {{- if .Params.album -}}
@@ -55,24 +41,31 @@
   <meta property="og:image" content="{{ .Site.Params.favicon }}" />
   {{ end }}
   {{ with resources.Get "css/index.css" | minify }}
-  <style>{{ .Content|safeCSS }}</style>
+  <style>
+    {
+        {
+        .Content|safeCSS
+      }
+    }
+  </style>
   {{ end }}
   {{ with resources.Get "css/flexboxgrid-6.3.1.min.css" | minify }}
-  <style>{{ .Content|safeCSS }}</style>
+  <style>
+    {
+        {
+        .Content|safeCSS
+      }
+    }
+  </style>
   {{ end }}
   {{ range .Site.Params.extraCSSFiles -}}
-  <link
-    rel="stylesheet"
-    href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}"
-  />
-  {{- end }} <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL
-  }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  <link rel="stylesheet" href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}" />
+  {{- end }}
+  <link href="{{ .Site.Params.staticPrefix }}{{ " index.xml" | relURL }}" rel="alternate" type="application/rss+xml"
+    title="{{ .Site.Title }}">
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Bree+Serif|Bungee+Shade"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Bungee+Shade" rel="stylesheet" />
   <!-- quicklink require -->
   <!-- <script>
     /* Disable minification (remove `.min` from URL path) for more info 
@@ -83,7 +76,7 @@
 
   <!-- Prevent theme flash by setting theme before page render -->
   <script data-cfasync="false">
-    (function() {
+    (function () {
       const themeKey = 'theme';
       const themes = { light: 'light', dark: 'dark', system: 'system' };
 
@@ -148,7 +141,7 @@
       }
 
       // Listen for system theme changes
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
         const stored = getStoredTheme();
         if (!stored || stored === themes.system) {
           setTheme(themes.system);
