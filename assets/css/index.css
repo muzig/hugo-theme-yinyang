@@ -216,6 +216,18 @@ a:hover {
   border-radius: 5px;
 }
 
+.post-taxonomy-row {
+  row-gap: 10px;
+}
+
+.post-tag-list {
+  margin-top: 12px;
+}
+
+.post-chip-static {
+  opacity: 0.8;
+}
+
 .post-date {
   font-weight: 800;
   font-style: italic;

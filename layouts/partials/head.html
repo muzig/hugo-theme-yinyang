@@ -1,7 +1,9 @@
 <head>
   <meta charset="utf-8" />
   {{ hugo.Generator }}
-  <meta name="google-site-verification" content="cjUeAB94_LgGaOQ3rk5sUy6wCk-o8N85tKvKJ98-ifM" />
+  {{ with .Site.Params.googleSiteVerification }}
+  <meta name="google-site-verification" content="{{ . }}" />
+  {{ end }}
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
